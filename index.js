@@ -1,3 +1,27 @@
+// Add these at the top
+const express = require('express');
+const qrcode = require('qrcode');
+const app = express();
+let lastQR = '';
+
+app.get('/', (req, res) => {
+  if (lastQR) {
+    qrcode.toDataURL(lastQR, (err, url) => {
+      res.send(`<img src="${url}" /><p>Scan this with WhatsApp</p>`);
+    });
+  } else {
+    res.send('Bot is already authenticated or QR not ready yet. Refresh in 10 seconds.');
+  }
+});
+
+app.listen(3000, () => console.log('QR server running on port 3000'));
+
+// Then change the QR event to:
+client.on('qr', (qr) => {
+  lastQR = qr;
+  console.log('QR ready — visit your Render URL to scan it');
+});
+
 /**
  * WhatsApp AI Bot — Powered by Claude (via Anthropic API)
  * Features:
