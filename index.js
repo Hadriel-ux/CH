@@ -13,7 +13,7 @@ const Anthropic = require('@anthropic-ai/sdk');
 const cron = require('node-cron');
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || 'YOUR_API_KEY_HERE';
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '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';
 const AUTO_REPLY_DELAY_MS = 2 * 60 * 1000; // 2 minutes
 const STATUS_REPLY_ENABLED = true;
 const MONDAY_GREETING_ENABLED = true;
