@@ -1,2 +1,0 @@
-# CH
-wa bot
